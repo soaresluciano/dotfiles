@@ -11,4 +11,4 @@ alias fvim='nvim $(fzf -m --preview="bat --color=always {}")'
 
 # Homebrew
 alias brewup='brew update && brew upgrade && brew cleanup'
-alias brewinfo='brew list --versions | wc -l && echo "packages installed"'
+alias brewinfo='brew list --installed-on-request'
