@@ -1,4 +1,6 @@
 alias myaliases="bat ~/.config/zsh/auto/aliases*.zsh"
+alias zshrefresh='source $HOME/.zshrc'
+alias myalias="myaliases"
 alias ls="exa --icons"
 
 # disk usage
@@ -12,3 +14,7 @@ alias fvim='nvim $(fzf -m --preview="bat --color=always {}")'
 # Homebrew
 alias brewup='brew update && brew upgrade && brew cleanup'
 alias brewinfo='brew list --installed-on-request'
+
+# chezmoi
+alias chez="chezmoi"
+
