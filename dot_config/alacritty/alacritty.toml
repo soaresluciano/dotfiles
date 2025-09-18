@@ -1,0 +1,7 @@
+[window]
+decorations_theme_variant = "Dark"
+opacity = 0.90
+
+[font]
+normal = { family = "FiraCode Nerd Font", style = "Regular" }
+size = 12
