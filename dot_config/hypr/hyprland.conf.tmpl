@@ -21,8 +21,12 @@ monitor=,preferred,auto,auto
 # See https://wiki.hypr.land/Configuring/Keywords/
 
 $terminal = uwsm app -- kitty
-$fileManager = nemo
 $menu = wofi --show drun
+{{- if eq .chezmoi.hostname "gimli" }}
+$fileManager = dolphin
+{{- else }}
+#fileManager = nemo
+{{- end }}
 
 
 #################
@@ -180,9 +184,14 @@ misc {
 
 # https://wiki.hypr.land/Configuring/Variables/#input
 input {
-    kb_layout = #br
+{{- if eq .chezmoi.hostname "gimli" }}
+    kb_layout =
+    kb_model =
+{{- else }}
+    kb_layout = br
+    kb_model = nativo
+{{- end }}
     kb_variant =
-    kb_model = #nativo
     kb_options =
     kb_rules =
 
