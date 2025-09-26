@@ -1,4 +1,4 @@
-alias myaliases="bat ~/.config/zsh/auto/aliases*.zsh"
+alias myaliases="alias | bat -l sh --file-name 'My Aliases'"
 alias zshrefresh='source $HOME/.zshrc'
 alias myalias="myaliases"
 alias ls="exa --icons"
