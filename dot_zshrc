@@ -1,1 +1,40 @@
-source "$HOME/.config/zsh/main.zsh"
+# UTILITIES FUNCTIONS
+is_readable() {
+    [[ -r "$1" ]]
+}
+
+source_if_readable() {
+    is_readable "$1" && source "$1"
+}
+
+has_command() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# BREW
+local _brew_path="/home/linuxbrew/.linuxbrew/bin/brew"
+is_readable "$_brew_path" && eval "$($_brew_path shellenv)"
+
+# AUTO LOADING FUNCTIONS
+local _funcs_dir="$HOME/.config/zsh/functions"
+fpath=($_funcs_dir $fpath)
+for func in "$_funcs_dir"/*.zsh; do
+    is_readable "$func" && autoload -Uz "${func:t:r}"
+done
+
+# AUTO SOURCING
+for file in "$HOME/.config/zsh/sources"/*.zsh; do
+    source_if_readable "$file"
+done
+
+# ZSH SYNTAX HIGHLIGHTING
+source_if_readable /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# FZF key bindings and fuzzy completion
+has_command fzf && source <(fzf --zsh)
+
+# ATUIN
+has_command atuin && eval "$(atuin init zsh)"
+
+# STARSHIP
+has_command starship && eval "$(starship init zsh)"
