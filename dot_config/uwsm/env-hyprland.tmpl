@@ -1,0 +1,17 @@
+# Hyprland-specific environment variables
+
+# Aquamarine DRM devices (for multi-GPU setups)
+# Leave empty to auto-detect, or specify specific devices
+{{- if eq .chezmoi.hostname "galadriel" }}
+export AQ_DRM_DEVICES="/dev/dri/card0:/dev/dri/card1"
+{{- end }}
+
+# XWayland settings for Hyprland
+export XWAYLAND_NO_GLAMOR=0
+
+# Additional Hyprland-specific variables
+export WLR_NO_HARDWARE_CURSORS=1
+export WLR_RENDERER=vulkan
+
+# Hyprland-specific XWayland integration
+export WLR_XWAYLAND=1
