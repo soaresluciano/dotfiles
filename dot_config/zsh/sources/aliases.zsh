@@ -19,4 +19,6 @@ alias brewinfo='brew list --installed-on-request'
 
 # chezmoi
 alias chez="chezmoi"
-alias lzchez='(cd ~/.local/share/chezmoi && lazygit)'
+alias chezup="chezmoi update"
+alias chezme="chezmoi apply"
+alias chezlz='(cd ~/.local/share/chezmoi && lazygit)'
