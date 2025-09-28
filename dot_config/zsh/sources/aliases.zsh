@@ -1,6 +1,6 @@
 # general
 alias allalias="alias | bat -l sh --file-name 'All alias'"
-alias myalias="bat ~/.config/zsh/auto/aliases*.zsh"
+alias myalias="bat ~/.config/zsh/sources/aliases*.zsh"
 
 alias zshrefresh='source $HOME/.zshrc'
 alias ls="exa --icons"
