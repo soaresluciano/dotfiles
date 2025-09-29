@@ -2,7 +2,7 @@
 alias allalias="alias | bat -l sh --file-name 'All alias'"
 alias myalias="bat ~/.config/zsh/sources/aliases*.zsh"
 
-alias zshrefresh='source $HOME/.zshrc'
+alias re-source='source $HOME/.zshrc'
 alias ls="exa --icons"
 
 # disk usage
@@ -18,7 +18,8 @@ alias brewup='brew update && brew upgrade && brew cleanup'
 alias brewinfo='brew list --installed-on-request'
 
 # chezmoi
-alias chez="chezmoi"
-alias chezup="chezmoi update"
-alias chezme="chezmoi apply"
-alias chezlz='(cd ~/.local/share/chezmoi && lazygit)'
+alias chz='chezmoi'
+alias chzu='chezmoi update'
+alias chza='chezmoi apply'
+alias chze='chezmoi edit'
+alias chzl='(cd ~/.local/share/chezmoi && lazygit)'

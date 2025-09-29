@@ -1,0 +1,11 @@
+[user]
+	name = Luciano Soares
+	email = 1084292+soaresluciano@users.noreply.github.com
+[init]
+	defaultBranch = main
+[core]
+  editor = nvim
+{{- if eq .chezmoi.hostname "gimli" }}
+[credential]
+	helper = store
+{{- end }}
