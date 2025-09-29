@@ -1,0 +1,4 @@
+font-family = "RobotoMono Nerd Font Mono"
+theme = Catppuccin Mocha
+background-opacity = 0.7
+background-blur = true
