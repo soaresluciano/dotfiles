@@ -1,4 +1,5 @@
-{{- if ne .desktop "hyprland" }}
+{{- $desktop := get . "desktop" -}}
+{{- if (and $desktop (ne $desktop "hyprland")) }}
 hypr/
 hypr/**
 uwsm/
