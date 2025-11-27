@@ -1,4 +1,5 @@
 # general
+alias weather="curl wttr.in/eindhoven"
 alias allalias="alias | bat -l sh --file-name 'All alias'"
 alias myalias="bat ~/.config/zsh/sources/aliases*.zsh"
 
@@ -18,8 +19,9 @@ alias brewup='brew update && brew upgrade && brew cleanup'
 alias brewinfo='brew list --installed-on-request'
 
 # chezmoi
-alias chzez='chezmoi'
-alias chzeup='chezmoi update'
+alias chez='chezmoi'
+alias cheup='chezmoi update'
 alias cheza='chezmoi apply'
 alias cheze='chezmoi edit'
 alias chezlazy='(cd ~/.local/share/chezmoi && lazygit)'
+
