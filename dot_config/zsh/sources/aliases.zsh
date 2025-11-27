@@ -18,8 +18,8 @@ alias brewup='brew update && brew upgrade && brew cleanup'
 alias brewinfo='brew list --installed-on-request'
 
 # chezmoi
-alias chz='chezmoi'
-alias chzu='chezmoi update'
-alias chza='chezmoi apply'
-alias chze='chezmoi edit'
-alias chzl='(cd ~/.local/share/chezmoi && lazygit)'
+alias chzez='chezmoi'
+alias chzeup='chezmoi update'
+alias cheza='chezmoi apply'
+alias cheze='chezmoi edit'
+alias chezlazy='(cd ~/.local/share/chezmoi && lazygit)'

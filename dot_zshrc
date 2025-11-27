@@ -38,3 +38,7 @@ has_command atuin && eval "$(atuin init zsh)"
 
 # STARSHIP
 has_command starship && eval "$(starship init zsh)"
+
+# MISE
+has_command mise && eval "$(mise activate zsh)"
+
