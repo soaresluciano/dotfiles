@@ -2,6 +2,6 @@
 alias mirrorsup="sudo reflector --latest 100 --sort rate --country France,German,Belgium,Netherlands --save /etc/pacman.d/mirrorlist"
 
 #pacman
-alias pacclean='sudo pacman -Rns $(pacman -Qdtq)'
+alias pacclean='sudo pacman -Rns $(pacman -Qdtq) && yay -Yc'
 alias pacup='sudo pacman -Syu'
-alias pacmaid='mirrorsup && pacup && pacclean'
+alias pacmaid='mirrorsup && pacclean'
