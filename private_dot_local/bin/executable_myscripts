@@ -1,0 +1,19 @@
+#!/bin/bash
+
+target_dir=$1
+
+if [ -z "$target_dir" ]; then
+    target_dir=~/scripts
+fi
+
+script_path="$(readlink -f "${BASH_SOURCE[0]}")"
+
+ls -r "$target_dir" \
+    | fzf --preview="[ -d $target_dir/{} ] && exa --icons --color=always -a -1 {} || bat --paging=never --color=always $target_dir/{}" \
+    | sed "s|^|$target_dir/|" \
+    | xargs -r -I {} sh -c '
+        if [ -f "$1" ]; then
+            sh "$1"
+        else
+            sh "$2" "$1"
+        fi' _ "{}" "$script_path"

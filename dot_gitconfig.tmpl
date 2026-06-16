@@ -5,7 +5,5 @@
 	defaultBranch = main
 [core]
   editor = nvim
-{{- if eq .chezmoi.hostname "gimli" }}
 [credential]
-	helper = store
-{{- end }}
+	helper = {{ .credential_helper }}

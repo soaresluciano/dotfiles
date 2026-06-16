@@ -1,0 +1,14 @@
+{{- $desktop := env "XDG_CURRENT_DESKTOP" | lower -}}
+{{- $gitCore := output "git" "--exec-path" | trim -}}
+{{- $credentialHelper := "store" -}}
+{{- if or (lookPath "git-credential-libsecret") (stat (printf "%s/git-credential-libsecret" $gitCore)) -}}
+{{-   $credentialHelper = "libsecret" -}}
+{{- else if lookPath "git-credential-kwallet6" -}}
+{{-   $credentialHelper = "kwallet6" -}}
+{{- else if lookPath "git-credential-kwallet5" -}}
+{{-   $credentialHelper = "kwallet5" -}}
+{{- end -}}
+
+[data]
+  desktop = {{ $desktop | quote }}
+  credential_helper = {{ $credentialHelper | quote }}
