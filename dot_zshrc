@@ -1,3 +1,7 @@
+local _zsh_dir="$HOME/.config/zsh"
+local _sources_dir="$_zsh_dir/sources"
+local _funcs_dir="$_zsh_dir/functions"
+
 # UTILITIES FUNCTIONS
 is_readable() {
     [[ -r "$1" ]]
@@ -11,19 +15,24 @@ has_command() {
     command -v "$1" >/dev/null 2>&1
 }
 
+# EXPORTS
+source_if_readable "$_zsh_dir/exports.zsh"
+
 # BREW
-local _brew_path="/home/linuxbrew/.linuxbrew/bin/brew"
-is_readable "$_brew_path" && eval "$($_brew_path shellenv)"
+# CUSTOM_BREW machines set up brew via their own auto-sourced linuxbrew.zsh
+if [[ "${CUSTOM_BREW:-}" != "TRUE" ]]; then
+    local _brew_path="/home/linuxbrew/.linuxbrew/bin/brew"
+    is_readable "$_brew_path" && eval "$($_brew_path shellenv)"
+fi
 
 # AUTO LOADING FUNCTIONS
-local _funcs_dir="$HOME/.config/zsh/functions"
 fpath=($_funcs_dir $fpath)
 for func in "$_funcs_dir"/*.zsh; do
     is_readable "$func" && autoload -Uz "${func:t:r}"
 done
 
 # AUTO SOURCING
-for file in "$HOME/.config/zsh/sources"/*.zsh; do
+for file in "$_sources_dir"/*.zsh; do
     source_if_readable "$file"
 done
 
