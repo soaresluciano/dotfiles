@@ -25,3 +25,8 @@ alias cheza='chezmoi apply'
 alias cheze='chezmoi edit'
 alias chezlazy='(cd ~/.local/share/chezmoi && lazygit)'
 
+# 7zip
+# High Compression (Level 7) use: 7zhigh archive_name.7z folder_or_file_to_compress
+alias 7zhigh='7z a -t7z -m0=LZMA2 -mx=7 -ms=on'
+# Ultra Compression (Level 9) use: 7zultra archive_name.7z folder_or_file_to_compress
+alias 7zultra='7z a -t7z -m0=LZMA2 -mx=9 -ms=on'
