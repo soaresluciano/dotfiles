@@ -1,0 +1,18 @@
+if [ -z "$1" ]; then
+    echo "Usage: why <package-name>"
+    return 1
+fi
+
+if ! command -v pactree &> /dev/null; then
+    echo -e "\033[1;31mError: 'pactree' is not installed.\033[0m"
+    echo "Please install it by running: sudo pacman -S pacman-contrib"
+    return 1
+fi
+
+if ! pacman -Qi "$1" &> /dev/null; then
+    echo "Error: Package '$1' is not installed via pacman."
+    return 1
+fi
+
+echo -e "\n\033[1;34m=== Dependency Tree for $1 ===\033[0m"
+pactree -r -c "$1"

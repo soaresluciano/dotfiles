@@ -27,8 +27,8 @@ fi
 
 # AUTO LOADING FUNCTIONS
 fpath=($_funcs_dir $fpath)
-for func in "$_funcs_dir"/*.zsh; do
-    is_readable "$func" && autoload -Uz "${func:t:r}"
+for func in "$_funcs_dir"/*; do
+    is_readable "$func" && autoload -Uz "${func:t}"
 done
 
 # AUTO SOURCING
