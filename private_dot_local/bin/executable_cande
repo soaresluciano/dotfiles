@@ -1,0 +1,33 @@
+#!/usr/bin/env zsh
+
+action="$1"
+id="$2"
+base="$HOME/.candelabro"
+
+case "$action" in
+  on)
+    if [[ -z "$id" ]]; then
+      echo "Usage: cande on <id>"
+      exit 1
+    fi
+    target="$base/$id"
+    mkdir -p "$target"
+    ln -sfn "$target" ./.candelabro
+    echo "→ .candelabro linked to $target"
+    ;;
+  off)
+    if [[ -L ./.candelabro ]]; then
+      rm ./.candelabro
+      echo "→ .candelabro symlink removed"
+    else
+      echo "No .candelabro symlink in this directory"
+    fi
+    ;;
+  ls)
+    ls "$base"
+    ;;
+  *)
+    echo "Usage: cande [on|off|ls] <id>"
+    exit 1
+    ;;
+esac
