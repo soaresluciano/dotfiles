@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Clean Arch system: remove orphans (if any), prune pacman cache (keep last 3),
+# and clean yay cache while keeping PKGBUILD Git diffs intact
+orphans=$(pacman -Qdtq || true)
+if [[ -n "$orphans" ]]; then
+  sudo pacman -Rns $orphans
+fi
+
+sudo paccache -r
+yay -Sc
